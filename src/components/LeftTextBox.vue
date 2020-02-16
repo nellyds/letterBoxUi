@@ -1,14 +1,19 @@
 <template>
   <div class="LeftTextBox">
     <h1 class="text" v-on:click="clickItem($event)">{{firstInitial}}<span >{{output}}</span></h1>
-    <div id="target" class="content" ><p>This is the content</p></div>
+    <div id="target" class="content" ><Form></Form></div>
   </div>
 </template>
 
 <script>
+import Form from "@/components/Form.vue";
 import { setTimeout } from 'timers';
 export default {
   name: "LeftTextBox",
+  components: {
+    Form
+  }
+  ,
   props: {
     msg: String,
   }, 
@@ -78,20 +83,21 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.LeftTextBox{
+  border-left: 1px solid white;
+}
 .text{
   color:white;
-  background-color: rgba(30,30,30,1);
   padding: .2em;
+  
+  
 }
 .content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   color:white;
-  background-color: rgba(30,30,30,1);
-}
-.LeftTextBox{
-  background-color: rgba(30,30,30,1);
+  
+
 }
 </style>

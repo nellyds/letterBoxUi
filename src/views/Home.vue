@@ -3,8 +3,9 @@
     <div class="flex-container">
     <LeftTextBox msg="this is also me"></LeftTextBox>
 
-    <RightTextBox msg="this is me"></RightTextBox>
+
     </div>
+        <RightTextBox msg="this is me"></RightTextBox>
     </div>
 </template>
 
