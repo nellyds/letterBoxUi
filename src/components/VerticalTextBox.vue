@@ -1,7 +1,9 @@
 <template>
-  <div class="LeftTextBox">
+  <div class="VerticalTextBox">
+      <div class="container">
     <h1 class="text" v-on:click="clickItem($event)">{{firstInitial}}<span >{{output}}</span></h1>
-    <div id="target" class="content" ><Form></Form></div>
+    <div id="target" class="content scale-in-hor-left " ><Form></Form></div>
+    </div>
   </div>
 </template>
 
@@ -9,10 +11,12 @@
 import Form from "@/components/Form.vue";
 import { setTimeout } from 'timers';
 export default {
-  name: "LeftTextBox",
-  components: {
+  name: "VerticalTextBox",
+   components: {
     Form
-  },
+  }
+  ,
+  
   props: {
     msg: String,
   }, 
@@ -38,6 +42,7 @@ export default {
           if (this.charIndex < len){
             this.output = this.output + this.fullTitle[this.charIndex];
             this.charIndex += 1;
+            console.log(this.charIndex, len)
             setTimeout(this.writeTitle, 30);
           } else {
           this.expandContent();
@@ -79,13 +84,21 @@ export default {
 
 </script>
 <style scoped>
-.LeftTextBox{
+.container{
+      display:flex;
+  justify-content: center;
+}
+.VerticalTextBox{
   border-left: 1px solid white;
+  
 }
 .text{
+    
   color:white;
   padding: .2em;
-
+transform: rotate(-90deg);
+position: relative;
+  
   
 }
 .content {

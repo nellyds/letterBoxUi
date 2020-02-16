@@ -1,29 +1,45 @@
 <template>
-  <div class="home">
+  <div id="home" class="home" >
+    <div class="dashboard">scrollTop:{{position.scrollTop}}</div>
+    <div class="screen_container" >
     <div class="flex-container">
-    <LeftTextBox msg="this is also me"></LeftTextBox>
-
-
+    <LeftTextBox msg="This is also me"></LeftTextBox>
     </div>
-        <RightTextBox msg="this is me"></RightTextBox>
     </div>
+    <div class="screen_container">
+        <div class="flex-container">
+    <p> something else</p>
+    {{position.scrollTop}}
+    </div>
+    </div>
+    <div class="screen_container">
+        <div class="flex-container">
+       <p> and something else</p>
+    </div>
+    </div>
+            <!-- <div class="flex-container">
+<VerticalTextBox msg="Why the hell not?"></VerticalTextBox> -->
+    </div>
+    
 </template>
 
 <script>
-// @ is an alias to /src
 import LeftTextBox from "@/components/LeftTextBox.vue";
-import RightTextBox from "@/components/RightTextBox.vue";
-
-
 export default {
   name: "Home",
   components: {
     LeftTextBox,
-    RightTextBox
-  }
+  },
+  data: function(){
+    return {
+      position: {scrollTop: 0, scrollLeft: 0}
+    }
+  },
+
 };
 </script>
 <style scoped>
+
 .flex-container{
   display:flex;
   justify-content: center;
@@ -31,6 +47,10 @@ export default {
 .divider{
   border-right: 1px solid;
 
+}
+.screen_container{
+  height:100vh;
+  background-color:black; 
 }
 
 

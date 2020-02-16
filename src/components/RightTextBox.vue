@@ -1,7 +1,7 @@
 <template>
   <div class="RightTextBox">
     <h1 v-on:click="clickItem($event)"><span>{{output}}</span>{{lastInitial}}</h1>
-    <div id="target" class="content" ><Form></Form></div>
+    <div id="target" class="content" ></div>
   </div>
 </template>
 
