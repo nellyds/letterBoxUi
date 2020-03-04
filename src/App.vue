@@ -1,25 +1,22 @@
 <template>
-  <div id="app" >
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <transition >
+        <router-view></router-view>
+    </transition>
+
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-background-color:black;
-color:white;
-margin:auto;
-height: 100vh;
+<script>
 
+export default {
+  name: "App",
 
-}
+  components: {
+  },
 
-
-</style>
-
+  data: () => ({
+    
+  })
+};
+</script>

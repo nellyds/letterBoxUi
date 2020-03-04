@@ -1,7 +1,7 @@
 <template>
   <div class="RightTextBox">
     <h1 v-on:click="clickItem($event)"><span>{{output}}</span>{{lastInitial}}</h1>
-    <div id="target" class="content" ></div>
+    <div id="target" class="content" ><Form></Form></div>
   </div>
 </template>
 
@@ -31,7 +31,6 @@ export default {
     },
     writeTitle: function(){       
          if  (this.charIndex > -1){
-             console.log(this.fullTitle[this.charIndex])
           this.output =  this.fullTitle[this.charIndex] + this.output
           this.charIndex -= 1
           setTimeout(this.writeTitle, 30)
