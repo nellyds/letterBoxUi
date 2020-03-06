@@ -1,5 +1,5 @@
 <template>
-  <div class="LeftTextBox">
+  <div class="FormBox">
     <v-responsive ratio="16/9">
   <div class="screenContainer">
     <transition name="fade">
@@ -7,11 +7,11 @@
     </transition>
     <div id="target" class="textContainer" v-bind:style="objectPlacement">
     <p class="text" v-on:click="clickItem($event)">
-      <span class="firstLetter">{{ firstInitial }}</span> <span>{{ output }}</span>
+      <span class="firstInitial" >{{ firstInitial }}</span> <span>{{ output }}</span>
     </p>
     <transition name="fadein">
     <div v-if="showBackGround" id="containerTarget" class="containerTarget">
-      {{textContent}}
+      <Form />
     </div>
     </transition>
   </div>
@@ -22,9 +22,11 @@
 
 <script>
 import { setTimeout } from "timers";
+import Form from "@/components/Form.vue";
 export default {
-  name: "LeftTextBox",
+  name: "FormBox",
   components: {
+      Form
   },
   props: {
     initContent: String,
@@ -36,8 +38,6 @@ export default {
     this.firstInitial = this.content.slice(0, 1);
     var len = this.content.length;
     this.fullTitle = this.content.slice(1, len);
-    this.top = Math.floor(Math.random() * (900-300)) + 300;
-    this.left = Math.floor(Math.random() * (900-300)) + 300;
   },
   methods: {
     clickItem: function() {
@@ -101,17 +101,14 @@ export default {
       firstInitial: "",
       fullTitle: "",
       output: "",
-      top: Math.floor(Math.random() * (900-300)) + 300,
-      left:Math.floor(Math.random() * (900-300)) + 300,
       charIndex: 0,
       contentHeight: 0,
       showBackGround:false,
       show : false,
-      textContent: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident",
       objectPlacement: {
         position: 'absolute',
-        top: ''+300 + 'px',
-        left: ''+400 + 'px'
+        top: '400px',
+        left: '500px'
       }
     };
   },
@@ -127,7 +124,7 @@ export default {
 .text {
   color: white;
   padding: 0.2em;
-  font-size: 2.5em;
+  font-size:2em;
     font-family: 'Amatic SC', cursive;
 }
 .content {
@@ -167,10 +164,9 @@ export default {
 
 .containerTarget{
   background-color:black;
-  padding: .5em;
-  font-size: 1.5em;
+  padding: 2em;
+  font-size: 1em;
   color:white;
-    font-family: 'Amatic SC', cursive;
 }
 .fadein-enter {
   opacity: 0;
@@ -184,9 +180,8 @@ export default {
 .background{
   background-color: black;
 }
-.firstLetter{
+.firstInitial{
   font-size: 4em;
     font-family: 'Amatic SC', cursive;
 }
-
 </style>

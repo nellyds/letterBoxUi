@@ -31,7 +31,7 @@ header {
 }
 
 input {
-  font-family: "Lato", sans-serif;
+    font-family: 'Amatic SC', cursive;
   font-size: 0.875em;
   width: 470px;
   height: 50px;
@@ -65,9 +65,8 @@ textarea {
   background: white;
   color: black;
   outline: none;
-
-  color: #726659;
-  font-family: "Lato", sans-serif;
+    font-family: 'Amatic SC', cursive;
+  
   font-size: 0.875em;
 
   border: solid 1px black;

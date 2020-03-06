@@ -1,16 +1,14 @@
 <template>
   <div id="home" class="home" >
-    <p>off: {{offsetTop}}</p>
   <v-container  id="scroll_target" >
     <div v-scroll="onScroll">
       <!-- <div class="flex-container">
         <component v-bind:is="currentTabComponent" class="tab"></component>
       </div> -->
 </div>
-          <LeftTextBox v-bind:initContent=content v-bind:id="one" v-bind:image="'https://i.imgur.com/M2Q4rh9.jpg'" />  
-    initContent: String,
-    photoUrl: String
-
+          <LeftTextBox v-bind:initContent=content v-bind:id="one" v-bind:image="'https://vanyaland.com/wp-content/uploads/2017/12/MogwaiFeat_CreditScottMurry.jpg'" />  
+          <LeftTextBox v-bind:initContent=content2 v-bind:image="'https://musicglue-user-app-p-4-p.s3.amazonaws.com/originals/f56d2a90-19a5-0136-453b-264e8304efb3'" />
+          <FormBox v-bind:initContent=content3 v-bind:image="'https://cdntest.bridge909.org/images/appleseed-cast-brad-ftrjpg.jpg'" />
       </v-container>
   </div>
 
@@ -18,23 +16,20 @@
 
 <script>
 import LeftTextBox from "@/components/LeftTextBox.vue";
-// import RightTextBox from "@/components/RightTextBox.vue"
-// import PictureBox from "@/components/PictureBox.vue"
+import FormBox from "@/components/FormBox.vue";
 export default {
   name: "Home",
   components: {
-    LeftTextBox
-    //RightTextBox,
-    //PictureBox
+    LeftTextBox,
+    FormBox
   },
   data: function() {
     return {
       offsetTop: 0,
-      content: 'this is content',
-        // {'c':'this is also content', 'id':'two'},
-        // {'c':'this is the last one', 'id':'three'}
-
-      selectedId: 'one'
+      content: 'This is the Headline',
+      content2: 'Why not more stuff?',
+      selectedId: 'one',
+      content3: 'This is a form'
     };
   },
   methods: {
@@ -68,6 +63,9 @@ export default {
 }
 body{
   background-color: black;
+  width: 100%;
+  height: 100%;
+  
 }
 .divider {
   border-right: 1px solid;
