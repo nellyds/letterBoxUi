@@ -118,7 +118,6 @@ body {
 }
 a {
   text-decoration-color: white;
-  font-family: "hyper";
   color: white;
   text-decoration: none;
   max-height: 25vh;
@@ -127,7 +126,6 @@ a {
   color: white;
   background-color: black;
   text-decoration-color: white;
-  font-family: "hyper";
   color: white;
   text-decoration: none;
 }

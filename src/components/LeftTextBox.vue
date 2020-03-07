@@ -1,22 +1,6 @@
 <template>
   <div class="LeftTextBox">
-    <!-- <v-responsive ratio="16/9">
-  <div class="screenContainer">
-    <transition name="fade">
-    <img v-if="show"  id="photo" class="photo" :src="image">
-    </transition>
-    <div id="target" class="textContainer" v-bind:style="objectPlacement">
-    <p class="text" v-on:click="clickItem($event)">
-      <span class="firstLetter">{{ firstInitial }}</span><span>{{ output }}</span>
-    </p>
-    <transition name="fadein">
-    <div v-if="showBackGround" id="containerTarget" class="containerTarget">
-      {{textContent}}
-    </div>
-    </transition>
-  </div>
-  </div>
-    </v-responsive> -->
+
     <v-responsive ratio="16/16">
       <div class="screenContainer">
         <transition name="fade">
@@ -152,12 +136,13 @@ export default {
   transition: max-height 0.2s ease-out;
   color: black;
   background-color: white;
+  width: 40em;
 }
 .textContainer {
   position: absolute;
   z-index: 10;
   padding: 1em;
-  width: 40em;
+  width: 70em;
 }
 .screenContainer {
   height: 100vh;
@@ -184,6 +169,7 @@ export default {
   background-color: white;
   padding: 0.5em;
   font-size: 1.5em;
+  width: 40em;
 
   color: black;
   font-family: "Amatic SC", cursive;

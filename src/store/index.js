@@ -13,7 +13,6 @@ export default new Vuex.Store({
       this.state.isLandscape = argument.result;
     },
     setReveal(state, argument){
-      window.alert(argument.result)
       this.state.revealed = argument.result
     }
   },
