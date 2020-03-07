@@ -1,34 +1,41 @@
 <template>
-  <div id="Contact" class="Contact">
+  <div id="home" class="home">
     <v-container id="scroll_target">
-      <FadeTextBox
+      <div v-scroll="onScroll"></div>
+      <PictureBox
         v-bind:initContent="content"
         v-bind:image="
-          'https://diy-magazine.s3.amazonaws.com/d/diy/Artists/A/Appleseed-Cast/_landscape/125778/IMG_0016.jpg'
+          'https://www.yardhawk.net/everybodytalking/wp-content/uploads/2019/05/cursive-1.jpg'
         "
       />
     </v-container>
   </div>
 </template>
+
 <script>
-import FadeTextBox from "@/components/FadeTextBox.vue";
+import PictureBox from "@/components/PictureBox.vue";
 export default {
-  name: "About",
+  name: "Discography",
   components: {
-    FadeTextBox
+    PictureBox
   },
   data: function() {
     return {
-      content: "this is a fade"
+      content: "This is the Headline"
     };
   },
-  methods: {}
+  methods: {
+    onScroll() {
+      this.offsetTop += 1;
+    }
+  }
 };
 </script>
 <style scoped>
 .flex-container {
   display: flex;
   justify-content: center;
+  color: white;
 }
 body {
   width: 100%;
@@ -39,6 +46,7 @@ body {
 }
 .screen_container {
   height: 100vh;
+  background-color: black;
 }
 .centered {
 }

@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-
+import Contact from "../views/Contact.vue";
+import Discography from "../views/Discography.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -15,6 +16,17 @@ const routes = [
     name: "About",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue")
+  },
+
+  {
+    path: "/discography",
+    name: "Discography",
+    component: Discography
+  },
+  {
+    path: "/contact",
+    name: "Contact",
+    component: Contact
   }
 ];
 

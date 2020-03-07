@@ -2,26 +2,18 @@
   <div id="home" class="home">
     <v-container id="scroll_target">
       <div v-scroll="onScroll"></div>
-      <LeftTextBox
-        v-bind:initContent="content"
-        v-bind:id="one"
-        v-bind:image="
-          'https://vanyaland.com/wp-content/uploads/2017/12/MogwaiFeat_CreditScottMurry.jpg'
-        "
-      />
+      <!-- <LeftTextBox v-bind:initContent=content v-bind:id="one" v-bind:image="'https://vanyaland.com/wp-content/uploads/2017/12/MogwaiFeat_CreditScottMurry.jpg'" />   -->
     </v-container>
   </div>
 </template>
 
 <script>
-import LeftTextBox from "@/components/LeftTextBox.vue";
 export default {
-  name: "Home",
-  components: {
-    LeftTextBox
-  },
+  name: "Tour",
+  components: {},
   data: function() {
     return {
+      offsetTop: 0,
       content: "This is the Headline"
     };
   },

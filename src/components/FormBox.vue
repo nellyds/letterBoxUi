@@ -1,21 +1,26 @@
 <template>
   <div class="FormBox">
     <v-responsive ratio="16/9">
-  <div class="screenContainer">
-    <transition name="fade">
-    <img v-if="show"  id="photo" class="photo" :src="image">
-    </transition>
-    <div id="target" class="textContainer" v-bind:style="objectPlacement">
-    <p class="text" v-on:click="clickItem($event)">
-      <span class="firstInitial" >{{ firstInitial }}</span> <span>{{ output }}</span>
-    </p>
-    <transition name="fadein">
-    <div v-if="showBackGround" id="containerTarget" class="containerTarget">
-      <Form />
-    </div>
-    </transition>
-  </div>
-  </div>
+      <div class="screenContainer">
+        <transition name="fade">
+          <img v-if="show" id="photo" class="photo" :src="image" />
+        </transition>
+        <div id="target" class="textContainer" v-bind:style="objectPlacement">
+          <p class="text" v-on:click="clickItem($event)">
+            <span class="firstInitial">{{ firstInitial }}</span
+            ><span>{{ output }}</span>
+          </p>
+          <transition name="fadein">
+            <div
+              v-if="showBackGround"
+              id="containerTarget"
+              class="containerTarget"
+            >
+              <Form />
+            </div>
+          </transition>
+        </div>
+      </div>
     </v-responsive>
   </div>
 </template>
@@ -26,7 +31,7 @@ import Form from "@/components/Form.vue";
 export default {
   name: "FormBox",
   components: {
-      Form
+    Form
   },
   props: {
     initContent: String,
@@ -90,10 +95,10 @@ export default {
 
     fadeIn: function() {
       var photo = document.getElementById("photo");
-      if  (photo.style.opacity < 1){
-           photo.style.opacity += .1;
-     }  
-    },
+      if (photo.style.opacity < 1) {
+        photo.style.opacity += 0.1;
+      }
+    }
   },
   data() {
     return {
@@ -103,18 +108,16 @@ export default {
       output: "",
       charIndex: 0,
       contentHeight: 0,
-      showBackGround:false,
-      show : false,
+      showBackGround: false,
+      show: false,
       objectPlacement: {
-        position: 'absolute',
-        top: '400px',
-        left: '500px'
+        position: "absolute",
+        top: "400px",
+        left: "500px"
       }
     };
   },
-  computed: {
-
-  }
+  computed: {}
 };
 </script>
 <style scoped>
@@ -124,8 +127,8 @@ export default {
 .text {
   color: white;
   padding: 0.2em;
-  font-size:2em;
-    font-family: 'Amatic SC', cursive;
+  font-size: 2em;
+  font-family: "Archivo Black", sans-serif;
 }
 .content {
   max-height: 0;
@@ -133,10 +136,9 @@ export default {
   transition: max-height 0.2s ease-out;
   color: white;
   background-color: black;
-
 }
-.textContainer{
-    position: absolute;
+.textContainer {
+  position: absolute;
   z-index: 10;
   padding: 1em;
   width: 40em;
@@ -146,7 +148,7 @@ export default {
   width: 100vw;
   background-color: black;
 }
-.photo{
+.photo {
   position: absolute;
   height: 99vh;
   width: 99vw;
@@ -162,11 +164,11 @@ export default {
   opacity: 1;
 }
 
-.containerTarget{
-  background-color:black;
+.containerTarget {
+  background-color: black;
   padding: 2em;
   font-size: 1em;
-  color:white;
+  color: white;
 }
 .fadein-enter {
   opacity: 0;
@@ -177,11 +179,7 @@ export default {
 .fadein-enter-to {
   opacity: 1;
 }
-.background{
+.background {
   background-color: black;
-}
-.firstInitial{
-  font-size: 4em;
-    font-family: 'Amatic SC', cursive;
 }
 </style>

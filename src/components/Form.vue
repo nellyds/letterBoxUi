@@ -31,7 +31,7 @@ header {
 }
 
 input {
-    font-family: 'Amatic SC', cursive;
+  font-family: "Archivo Black", sans-serif;
   font-size: 0.875em;
   width: 470px;
   height: 50px;
@@ -65,8 +65,8 @@ textarea {
   background: white;
   color: black;
   outline: none;
-    font-family: 'Amatic SC', cursive;
-  
+  font-family: "Archivo Black", sans-serif;
+
   font-size: 0.875em;
 
   border: solid 1px black;

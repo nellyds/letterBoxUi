@@ -1,25 +1,33 @@
 <template>
   <div id="Contact" class="Contact">
     <v-container id="scroll_target">
+      <FormBox
+        v-bind:initContent="content"
+        v-bind:image="
+          'https://cdntest.bridge909.org/images/appleseed-cast-brad-ftrjpg.jpg'
+        "
+      />
       <FadeTextBox
         v-bind:initContent="content"
         v-bind:image="
-          'https://diy-magazine.s3.amazonaws.com/d/diy/Artists/A/Appleseed-Cast/_landscape/125778/IMG_0016.jpg'
+          'https://cdntest.bridge909.org/images/appleseed-cast-brad-ftrjpg.jpg'
         "
       />
     </v-container>
   </div>
 </template>
 <script>
+import FormBox from "@/components/FormBox.vue";
 import FadeTextBox from "@/components/FadeTextBox.vue";
 export default {
-  name: "About",
+  name: "Contact",
   components: {
+    FormBox,
     FadeTextBox
   },
   data: function() {
     return {
-      content: "this is a fade"
+      content: "this is a form"
     };
   },
   methods: {}

@@ -1,27 +1,7 @@
 <template>
   <div class="LeftTextBox">
-    <!-- <v-responsive ratio="16/9">
-  <div class="screenContainer">
-    <transition name="fade">
-    <img v-if="show"  id="photo" class="photo" :src="image">
-    </transition>
-    <div id="target" class="textContainer" v-bind:style="objectPlacement">
-    <p class="text" v-on:click="clickItem($event)">
-      <span class="firstLetter">{{ firstInitial }}</span><span>{{ output }}</span>
-    </p>
-    <transition name="fadein">
-    <div v-if="showBackGround" id="containerTarget" class="containerTarget">
-      {{textContent}}
-    </div>
-    </transition>
-  </div>
-  </div>
-    </v-responsive> -->
-    <v-responsive ratio="16/16">
+    <v-responsive ratio="16/9">
       <div class="screenContainer">
-        <transition name="fade">
-          <img v-if="show" id="photo" class="photo" :src="image" />
-        </transition>
         <div id="target" class="textContainer" v-bind:style="objectPlacement">
           <p class="text" v-on:click="clickItem($event)">
             <span class="firstLetter">{{ firstInitial }}</span
@@ -37,6 +17,10 @@
             </div>
           </transition>
         </div>
+        <img v-if="blurStart" id="photo" class="startPhoto" :src="image" />
+        <transition name="fade">
+          <img v-if="show" id="photo" class="photo" :src="image" />
+        </transition>
       </div>
     </v-responsive>
   </div>
@@ -60,17 +44,31 @@ export default {
   },
   methods: {
     clickItem: function() {
+      this.blurStart = false;
       var len;
       len = this.fullTitle.length;
+    this.$store.commit({
+      type: "setRevealed",
+      result: true
+    });
       if (this.charIndex === 0) {
         this.writeTitle();
         this.show = true;
+        this.$store.commit({
+        type: "setReveal",
+        result: true
+    });
         this.showBackGround = true;
       }
       if (this.charIndex === len) {
         this.deleteTitle();
         this.show = false;
+        this.$store.commit({
+        type: "setReveal",
+        result: false
+    });
         this.showBackGround = false;
+        this.blurStart = true;
       }
     },
     writeTitle: function() {
@@ -124,6 +122,7 @@ export default {
       contentHeight: 0,
       showBackGround: false,
       show: false,
+      blurStart: true,
       textContent:
         "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident",
       objectPlacement: {
@@ -141,7 +140,7 @@ export default {
   border-left: 1px solid white;
 }
 .text {
-  color: black;
+  color: white;
   padding: 0.2em;
   font-size: 3.5em;
   font-family: "Archivo Black", sans-serif;
@@ -171,13 +170,13 @@ export default {
   opacity: 1;
 }
 .fade-enter {
-  opacity: 0;
+  filter: blur(15px);
 }
 .fade-enter-active {
-  transition: opacity 3.5s;
+  transition: filter 1.5s;
 }
 .fade-enter-to {
-  opacity: 1;
+  filter: blur(0px);
 }
 
 .containerTarget {
@@ -189,15 +188,21 @@ export default {
   font-family: "Amatic SC", cursive;
 }
 .fadein-enter {
-  opacity: 0;
+  filter: blur(15px);
 }
 .fadein-enter-active {
-  transition: opacity 1.6s;
+  transition: filter 1.5s;
 }
 .fadein-enter-to {
-  opacity: 1;
+  filter: blur(0px);
 }
 .background {
   background-color: white;
+}
+.startPhoto {
+  filter: blur(15px);
+  position: absolute;
+  height: 99vh;
+  width: 99vw;
 }
 </style>
